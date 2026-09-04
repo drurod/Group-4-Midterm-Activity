@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Group 4 Midterm Activity</string>
+    <string name="app_name">Group4MidtermActivity</string>
+
+    <!-- 👇 ADD THESE NEW LINES BELOW -->
+    <string name="home">Home</string>
+    <string name="tasks">Tasks</string>
+    <string name="notes">Notes</string>
+    <string name="done">Done</string>
 </resources>

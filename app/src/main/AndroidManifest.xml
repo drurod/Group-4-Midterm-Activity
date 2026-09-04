@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -12,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Group4MidtermActivity">
         <activity
+
             android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
@@ -21,6 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddTaskActivity" />
+        <activity android:name=".TaskDetailsActivity" />
+        <activity android:name=".SubjectsActivity" />
+        <activity android:name=".TaskListActivity" />
+        <activity android:name=".CompletedTasksActivity" />
     </application>
 
 </manifest>
