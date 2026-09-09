@@ -24,13 +24,18 @@
             android:textColor="#000000" />
 
         <ImageView
+            android:id="@+id/iv_search"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_search"
             android:layout_marginEnd="16dp"
-            android:contentDescription="Search" />
+            android:contentDescription="Search"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless" />
 
         <TextView
+            android:id="@+id/tv_sort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sort ▼"
@@ -39,15 +44,49 @@
             android:padding="8dp"
             android:background="?attr/selectableItemBackgroundBorderless" />
 
+        <TextView
+            android:id="@+id/tv_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select"
+            android:textSize="16sp"
+            android:textColor="#6200EE"
+            android:padding="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginStart="8dp" />
+
     </androidx.appcompat.widget.Toolbar>
+
+    <!-- Search Bar (initially hidden) -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:boxBackgroundMode="outline"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search tasks..."
+            android:singleLine="true"
+            android:imeOptions="actionSearch" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Divider -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E0E0E0" />
+        android:background="#E0E0E0"
+        android:layout_marginTop="8dp" />
 
-    <!-- Scrollable Task List -->
+    <!-- Task List (Dynamic) -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -59,207 +98,58 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Task Item 1 -->
             <LinearLayout
-                android:id="@+id/task_item_1"
+                android:id="@+id/task_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:layout_marginBottom="8dp"
-                android:background="#F8F9FA"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Research Chapter 1"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📚 Programming"
-                            android:textSize="14sp"
-                            android:textColor="#888888"
-                            android:layout_marginEnd="12dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📅 Sept 5"
-                            android:textSize="14sp"
-                            android:textColor="#888888"
-                            android:layout_marginEnd="8dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="⏳ Overdue"
-                            android:textSize="14sp"
-                            android:textColor="#E53935"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Task Item 2 -->
-            <LinearLayout
-                android:id="@+id/task_item_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:layout_marginBottom="8dp"
-                android:background="#F8F9FA"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:checked="true" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Database Activity"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📚 Database"
-                            android:textSize="14sp"
-                            android:textColor="#888888"
-                            android:layout_marginEnd="12dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📅 Sept 7"
-                            android:textSize="14sp"
-                            android:textColor="#888888"
-                            android:layout_marginEnd="8dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="✅ Done"
-                            android:textSize="14sp"
-                            android:textColor="#43A047"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Task Item 3 -->
-            <LinearLayout
-                android:id="@+id/task_item_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="12dp"
-                android:layout_marginBottom="8dp"
-                android:background="#F8F9FA"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Networking Quiz"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="4dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📚 Networking"
-                            android:textSize="14sp"
-                            android:textColor="#888888"
-                            android:layout_marginEnd="12dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📅 Sept 3"
-                            android:textSize="14sp"
-                            android:textColor="#888888"
-                            android:layout_marginEnd="8dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🟡 Due in 3 days"
-                            android:textSize="14sp"
-                            android:textColor="#FDD835"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
+                android:orientation="vertical" />
 
         </LinearLayout>
     </ScrollView>
+
+    <!-- Selection Bottom Bar (initially hidden) -->
+    <LinearLayout
+        android:id="@+id/selection_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#F5F5F5"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:elevation="8dp">
+
+        <TextView
+            android:id="@+id/tv_selected_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0 selected"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/tv_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select All"
+            android:textSize="16sp"
+            android:textColor="#6200EE"
+            android:padding="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <TextView
+            android:id="@+id/tv_delete_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:textSize="16sp"
+            android:textColor="#E53935"
+            android:padding="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

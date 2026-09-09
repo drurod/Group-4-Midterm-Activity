@@ -16,33 +16,14 @@
         android:paddingEnd="0dp">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Add Task"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:gravity="center" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_close"
-                android:layout_marginEnd="16dp"
-                android:contentDescription="Close" />
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_save"
-                android:contentDescription="Save" />
-
-        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <!-- Spacer -->
@@ -60,9 +41,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etTaskName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Research Chapter 2"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -81,7 +62,6 @@
             android:id="@+id/autoCompleteSubject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Programming"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -96,16 +76,17 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Read pages 50-70 and summarize..."
             android:minLines="3"
             android:maxLines="5" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Deadline -->
+    <!-- Deadline with Calendar Picker -->
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_deadline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -113,13 +94,13 @@
         app:boxBackgroundMode="outline"
         app:endIconMode="custom"
         app:endIconDrawable="@drawable/ic_calendar"
+        app:endIconTint="#6200EE"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etDeadline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sept 10, 2026"
             android:focusable="false"
             android:clickable="true"
             android:singleLine="true"
@@ -135,6 +116,7 @@
 
     <!-- ADD TASK Button -->
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ADD TASK"
